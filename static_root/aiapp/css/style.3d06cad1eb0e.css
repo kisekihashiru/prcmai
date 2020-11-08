@@ -1,0 +1,16 @@
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0;
+}

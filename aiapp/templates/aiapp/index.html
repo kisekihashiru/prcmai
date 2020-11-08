@@ -1,0 +1,32 @@
+{% extends 'aiapp/layout.html' %}
+{% block title %}
+メイン画面
+{% endblock %}
+{% block content %}
+<div class="main-wrapper">
+    <h4 class="mt-4 mb-5 border-bottom">鬼滅の刃キャラ推定アプリ</h4>
+    <ul class="list-group mb-5">
+      <li class="list-group-item list-group-item-info">判別可能なキャラ 一覧</li>
+      <li class="list-group-item">炭治郎</li>
+      <li class="list-group-item">禰豆子</li>
+      <li class="list-group-item">冨岡義勇</li>
+      <li class="list-group-item">我妻善逸</li>
+      <li class="list-group-item">胡蝶しのぶ</li>
+    </ul>
+    <p>画像ファイルを選択して推定ボタンをクリックしてください。</p>
+    <form action="{% url 'aiapp:predict' %}" method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="custom-file">
+                {{ form.image }}
+                <label class="custom-file-label" for="customFile">
+                    推定したい画像ファイルを選択してください
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info mt-4">
+            推定ボタン
+        </button>
+    </form>
+</div>
+{% endblock %}
